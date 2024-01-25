@@ -19,7 +19,7 @@ namespace Units
 
         [SerializeField] private Transform target;
 
-        [SerializeField] private float smoothTime;
+        [SerializeField] private float smoothTime = .60f;
 
         [SerializeField] private Vector3 _currentVelocity = Vector3.zero;
 
@@ -51,9 +51,11 @@ namespace Units
 
             currentAngle = Mathf.LerpAngle(transform.eulerAngles.y, targetAngle, rotationSpeed * Time.deltaTime);
 
-            transform.rotation = Quaternion.Euler(30, currentAngle, 0);
+            transform.rotation = Quaternion.Euler(0, currentAngle, 0);
 
-            // ExtensionMethods._skewedDegree = currentAngle;
+            // transform.position = target.position + _offset;
+
+
             ExtensionMethods._isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, currentAngle, 0));
 
 

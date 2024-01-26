@@ -5,6 +5,8 @@ namespace Units
 {
     public class ArcadeMovement : MonoBehaviour
     {
+        private Vector3 _input;
+
         [SerializeField] private float _forwardAcceleration = 8f;
 
         [SerializeField] private float _reverseAcceleration = 4f;
@@ -21,31 +23,37 @@ namespace Units
 
         [SerializeField] private float _turnInput = 0f;
 
+        [SerializeField] private float _maxWheelTurn = 25f;
+
         [SerializeField] private string _xAxis = "Horizontal";
 
         [SerializeField] private string _yAxis = "Vertical";
 
         [SerializeField] private bool _isGrounded = false;
 
-        private Vector3 _input;
+        [SerializeField] private Rigidbody PlayerRigidbody;
 
-        public new Collider collider;
+        [SerializeField] private Transform groundRayPoint;
 
-        public new Rigidbody rigidbody;
+        [SerializeField] private Transform FrontWheel;
 
-        public Transform cameraTransform;
+        [SerializeField] private Transform RearWheel;
 
-        public Transform groundRayPoint;
+        [SerializeField] private LayerMask WhatIsGround;
 
-        public LayerMask whatIsGround;
+        [SerializeField] private float groundRayLength = .5f;
 
-        public float groundRayLength = .5f;
+        [SerializeField] private ParticleSystem[] dustTrail;
+
+        [SerializeField] private float maxEmission = 25f;
+
+        [SerializeField] private float emissionRate;
 
         private void GetInputs()
         {
             _input = new Vector3(Input.GetAxis(_xAxis), 0, Input.GetAxis(_yAxis));
 
-            _speedInput = _input.z > 0 ? _input.z * _forwardAcceleration * _speedMultiplier : _input.z < 0 ? _input.z * _reverseAcceleration * _speedMultiplier : 0f;
+            _speedInput = GetSpeedInput(_input.z);
 
             _turnInput = _input.x;
 
@@ -53,6 +61,14 @@ namespace Units
             {
                 transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, _turnInput * _input.z * _turnSpeed * Time.deltaTime, 0f));
             }
+        }
+
+        private float GetSpeedInput(float speed)
+        {
+            if (speed == 0)
+                return 0;
+
+            return speed * _speedMultiplier * (speed > 0 ? _forwardAcceleration : _reverseAcceleration);
         }
 
         private void Look()
@@ -67,6 +83,7 @@ namespace Units
         private void Update()
         {
             GetInputs();
+            SlopeRotation();
             // Look();
         }
 
@@ -77,39 +94,56 @@ namespace Units
 
         private void OnTriggerStay(Collider other)
         {
-            _isGrounded = other != null && (((1 << other.gameObject.layer) & whatIsGround) != 0);
-
-            // transform.rotation = Quaternion.FromToRotation(other.gameObject)
-            // foreach (ContactPoint contact in other.con)
-            // {
-            //     Debug.DrawRay(contact.point, contact.normal, Color.white);
-            // }
-
+            _isGrounded = other != null && (((1 << other.gameObject.layer) & WhatIsGround) != 0);
         }
 
-        private void OnTriggerExit(Collider other)
+        private void OnTriggerExit()
         {
             _isGrounded = false;
         }
 
+        private void SlopeRotation()
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundRayLength, WhatIsGround))
+            {
+                transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            }
+        }
+
         private void Move()
         {
+            emissionRate = 0f;
+
             if (_isGrounded)
             {
-                rigidbody.drag = 3f;
+                PlayerRigidbody.drag = 3f;
 
                 if (Mathf.Abs(_speedInput) > 0)
                 {
-                    rigidbody.AddForce(transform.forward * _speedInput);
+                    PlayerRigidbody.AddForce(transform.forward * _speedInput);
+
+                    emissionRate = maxEmission;
                 }
-            };
+            }
 
             if (!_isGrounded)
             {
-                rigidbody.drag = 0.1f;
-                rigidbody.AddForce(Vector3.up * -gravityForce * 100f);
+                PlayerRigidbody.drag = 0.1f;
+                PlayerRigidbody.AddForce(Vector3.up * -gravityForce);
             }
 
+            foreach (ParticleSystem particle in dustTrail)
+            {
+                ParticleSystem.EmissionModule emissionModule = particle.emission;
+
+                emissionModule.rateOverTime = emissionRate;
+            }
+
+            Vector3 wheelAngles = FrontWheel.localRotation.eulerAngles;
+
+            FrontWheel.localRotation = Quaternion.Euler(wheelAngles.x, wheelAngles.y, _turnInput * _maxWheelTurn);
 
             // Vector3 cameraForward = cameraTransform.forward;
 

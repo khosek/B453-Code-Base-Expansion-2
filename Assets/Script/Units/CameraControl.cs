@@ -21,8 +21,6 @@ namespace Units
 
         [SerializeField] private float smoothTime = .60f;
 
-        [SerializeField] private Vector3 _currentVelocity = Vector3.zero;
-
         private void Awake()
         {
             _offset = transform.position - target.position;
@@ -36,7 +34,7 @@ namespace Units
 
             if (isRotatingLeft || isRotatingRight)
             {
-                targetAngle += isRotatingLeft ? -45f : isRotatingRight ? 45f : 0;
+                targetAngle += isRotatingLeft ? -45f : 45f;
             }
 
             if (targetAngle < 0)
@@ -53,20 +51,12 @@ namespace Units
 
             transform.rotation = Quaternion.Euler(0, currentAngle, 0);
 
-            // transform.position = target.position + _offset;
+            transform.position = target.position + _offset;
 
 
-            ExtensionMethods._isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, currentAngle, 0));
+            // ExtensionMethods._isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, currentAngle, 0));
 
 
         }
-
-        private void LateUpdate()
-        {
-            Vector3 targetPosition = target.position + _offset;
-
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _currentVelocity, smoothTime);
-        }
-
     }
 }

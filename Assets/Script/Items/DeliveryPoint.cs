@@ -1,4 +1,5 @@
 using UnityEngine;
+using UI;
 
 namespace Items
 {
@@ -12,13 +13,13 @@ namespace Items
 
             if (player.cargo == null) return;
 
-            Debug.Log("Player scored : " + player.cargo.score + " points!");
+            GameManager.instance.AddScore(player.cargo);
 
             player.deliverItem();
 
-            DeliveryManager.instance.arrowCompass.target = null;
+            HudManager.instance.HideHud();
 
-            DeliveryManager.instance.arrowCompass.gameObject.SetActive(false);
+            AudioManager.instance.PlayDrop();
 
         }
 

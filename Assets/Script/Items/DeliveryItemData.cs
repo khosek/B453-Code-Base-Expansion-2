@@ -16,8 +16,6 @@ namespace Items
         public GameObject model = null;
 
         public GameObject damagedModel = null;
-
-
     }
 
 }

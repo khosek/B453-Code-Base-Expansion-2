@@ -1,4 +1,3 @@
-using UI;
 using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
@@ -7,8 +6,6 @@ public class DeliveryManager : MonoBehaviour
     public GameObject[] deliveryPoints;
 
     public static DeliveryManager instance { get; private set; }
-
-    public ArrowCompass arrowCompass;
 
     private void Awake()
     {
@@ -28,10 +25,6 @@ public class DeliveryManager : MonoBehaviour
         GameObject newDeliveryPoint = deliveryPoints[Random.Range(0, deliveryPoints.Length)];
 
         newDeliveryPoint.SetActive(true);
-
-        arrowCompass.gameObject.SetActive(true);
-
-        arrowCompass.target = newDeliveryPoint.transform;
 
         return newDeliveryPoint;
     }

@@ -5,6 +5,7 @@ namespace Items
     public class PickupItem : MonoBehaviour
     {
         [SerializeField] private Vector3 _rotation;
+
         public DeliveryItemData deliveryItemData;
 
         private GameObject childModelItem;

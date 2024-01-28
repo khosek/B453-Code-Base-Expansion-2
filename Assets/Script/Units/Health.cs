@@ -10,11 +10,16 @@ namespace Units
 
         public void DamagePlayer(int damagePoints)
         {
-            Debug.Log("Player has a cargo with: " + player.cargo.health + " health points.");
-
             player.cargo.health -= damagePoints;
 
-            Debug.Log("Player cargo was damaged ! it now have : " + player.cargo.health + " health points.");
+            HudManager.instance.SetHealth(player.cargo.health);
+
+            if (player.cargo.health <= 0)
+            {
+                player.deliverItem();
+
+                HudManager.instance.HideHud();
+            }
         }
     }
 }

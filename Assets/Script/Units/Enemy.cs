@@ -40,7 +40,6 @@ namespace Units
 
             health.DamagePlayer(enemyData.attackPoints);
 
-            Debug.Log(enemyData.name + " enemy damaged player!");
         }
 
         void Start()
@@ -52,12 +51,14 @@ namespace Units
 
         private void Update()
         {
+            if (waypoints.Length == 0 || !navMeshAgent.isActiveAndEnabled) return;
+
             if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) GoToNextPoint();
         }
 
         private void GoToNextPoint()
         {
-            if (waypoints.Length == 0) return;
+            if (waypoints.Length == 0 || !navMeshAgent.isActiveAndEnabled) return;
 
             navMeshAgent.destination = waypoints[destinationPointIndex].position;
 

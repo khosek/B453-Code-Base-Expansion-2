@@ -57,10 +57,10 @@ namespace Units
 
             _turnInput = _input.x;
 
-            if (_isGrounded)
-            {
-                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, _turnInput * _input.z * _turnSpeed * Time.deltaTime, 0f));
-            }
+            // if (_isGrounded)
+            // {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, _turnInput * _input.z * _turnSpeed * Time.deltaTime, 0f));
+            // }
         }
 
         private float GetSpeedInput(float speed)
@@ -92,16 +92,21 @@ namespace Units
             Move();
         }
 
-        // private void OnTriggerStay(Collider other)
-        // {
-        //     _isGrounded = other != null && (((1 << other.gameObject.layer) & WhatIsGround) != 0);
-        // }
 
-        // private void OnTriggerExit()
-        // {
-        //     Debug.Log("Player is not touching ground!");
-        //     _isGrounded = false;
-        // }
+        private void Start()
+        {
+            PlayerRigidbody.sleepThreshold = 0.0f;
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            _isGrounded = other != null && (((1 << other.gameObject.layer) & WhatIsGround) != 0);
+        }
+
+        private void OnTriggerExit()
+        {
+            _isGrounded = false;
+        }
 
         private void SlopeRotation()
         {

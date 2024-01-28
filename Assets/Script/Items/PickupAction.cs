@@ -33,15 +33,9 @@ namespace Items
 
             PickupItem deliveryItem = other.GetComponent<PickupItem>();
 
-            // Health playerHealth = other.GetComponent<Health>();
-
-            // playerHealth.SetHealth()
+            if (deliveryItem == null) return;
 
             cargo = Instantiate(deliveryItem.deliveryItemData);
-
-            Debug.Log(deliveryItem.deliveryItemData.name);
-            Debug.Log(deliveryItem.deliveryItemData.health);
-            Debug.Log(deliveryItem.deliveryItemData.deliveryTime);
 
             previousDeliveryPickupSpot = other.gameObject;
 
@@ -50,6 +44,12 @@ namespace Items
             childItemModel = Instantiate(cargo.model, _backPack.position, _backPack.rotation, _backPack);
 
             deliveryDestination = DeliveryManager.instance.GetDeliveryPoint();
+
+            HudManager.instance.SetArrowDirection(deliveryDestination);
+
+            HudManager.instance.SetItemDetails(deliveryItem.deliveryItemData);
+
+            AudioManager.instance.PlayPickup();
         }
     }
 

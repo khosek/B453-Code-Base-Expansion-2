@@ -29,7 +29,7 @@ namespace Units
 
         [SerializeField] private string _yAxis = "Vertical";
 
-        [SerializeField] private bool _isGrounded = false;
+        [SerializeField] private bool _isGrounded = true;
 
         [SerializeField] private Rigidbody PlayerRigidbody;
 
@@ -92,15 +92,16 @@ namespace Units
             Move();
         }
 
-        private void OnTriggerStay(Collider other)
-        {
-            _isGrounded = other != null && (((1 << other.gameObject.layer) & WhatIsGround) != 0);
-        }
+        // private void OnTriggerStay(Collider other)
+        // {
+        //     _isGrounded = other != null && (((1 << other.gameObject.layer) & WhatIsGround) != 0);
+        // }
 
-        private void OnTriggerExit()
-        {
-            _isGrounded = false;
-        }
+        // private void OnTriggerExit()
+        // {
+        //     Debug.Log("Player is not touching ground!");
+        //     _isGrounded = false;
+        // }
 
         private void SlopeRotation()
         {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sushi
   health: 5
-  deliveryTime: 60
+  deliveryTime: 45
   score: 5
   model: {fileID: 6278664795589133924, guid: 8ecb5feff6a409a4b98498c13fe52d5e, type: 3}
   damagedModel: {fileID: 0}

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cake
   m_EditorClassIdentifier: 
   name: Cake
-  health: 4
+  health: 3
   deliveryTime: 60
-  score: 4
+  score: 3
   model: {fileID: 5073589500609218522, guid: 4cdd0f536b998c141987f5362d20d263, type: 3}
   damagedModel: {fileID: 2081209941963662239, guid: 475c2b2992311884da42708c21b4e989, type: 3}

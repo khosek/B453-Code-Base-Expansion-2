@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fruit
   m_EditorClassIdentifier: 
   name: Fruit
-  health: 10
-  deliveryTime: 120
-  score: 10
+  health: 4
+  deliveryTime: 60
+  score: 4
   model: {fileID: 8361909364022185182, guid: 4c1489f0ef5237b4581e3b00771c0a5f, type: 3}
   damagedModel: {fileID: 0}

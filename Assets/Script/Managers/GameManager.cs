@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
 
     public Action OnTimeOut;
 
-    [SerializeField] private int _timerSeconds = 60;
+    public int timerSeconds;
+
+    private int _timerSeconds;
 
     [SerializeField] private int _score = 0;
 
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         _score = 0;
 
-        _timerSeconds = 60;
+        _timerSeconds = timerSeconds;
 
         Time.timeScale = 1;
 

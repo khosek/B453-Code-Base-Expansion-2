@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vehicle_Ambulance
   m_EditorClassIdentifier: 
   name: Ambulance
-  attackPoints: 1
+  attackPoints: 2
   attackRate: 2
-  knockbackForce: 150
+  knockbackForce: 200
   speed: 50

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vehicle_Truck
   m_EditorClassIdentifier: 
   name: Truck
-  attackPoints: 2
-  attackRate: 2
+  attackPoints: 3
+  attackRate: 3
   knockbackForce: 200
   speed: 25

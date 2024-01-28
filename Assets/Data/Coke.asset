@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Coke
   health: 1
-  deliveryTime: 20
+  deliveryTime: 40
   score: 1
   model: {fileID: 8998803247781539246, guid: 967bda6cd12c7c34d852681f280bdfef, type: 3}
   damagedModel: {fileID: 0}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Udon
   health: 10
-  deliveryTime: 60
+  deliveryTime: 90
   score: 10
   model: {fileID: 8575389795609162483, guid: 72f7713924360c14295e85883d1da829, type: 3}
   damagedModel: {fileID: 0}

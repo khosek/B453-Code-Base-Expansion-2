@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Police
   attackPoints: 1
   attackRate: 1
-  knockbackForce: 100
+  knockbackForce: 75
   speed: 50

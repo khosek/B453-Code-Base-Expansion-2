@@ -71,14 +71,14 @@ namespace Units
             return speed * _speedMultiplier * (speed > 0 ? _forwardAcceleration : _reverseAcceleration);
         }
 
-        private void Look()
-        {
-            if (_input == Vector3.zero) return;
+        // private void Look()
+        // {
+        //     if (_input == Vector3.zero) return;
 
-            Quaternion newRotation = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
+        //     Quaternion newRotation = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, _turnSpeed * Time.deltaTime);
-        }
+        //     transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, _turnSpeed * Time.deltaTime);
+        // }
 
         private void Update()
         {

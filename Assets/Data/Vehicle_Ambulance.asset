@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Ambulance
   attackPoints: 2
   attackRate: 2
-  knockbackForce: 200
+  knockbackForce: 150
   speed: 50

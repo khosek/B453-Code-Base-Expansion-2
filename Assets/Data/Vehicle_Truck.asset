@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Truck
   attackPoints: 3
   attackRate: 3
-  knockbackForce: 200
+  knockbackForce: 150
   speed: 25

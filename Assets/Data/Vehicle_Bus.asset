@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Bus
   attackPoints: 3
   attackRate: 3
-  knockbackForce: 250
+  knockbackForce: 200
   speed: 20

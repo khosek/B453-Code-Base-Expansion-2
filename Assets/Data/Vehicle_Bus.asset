@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bus
   attackPoints: 3
-  attackRate: 2
-  knockbackForce: 250
+  attackRate: 3
+  knockbackForce: 200
   speed: 20

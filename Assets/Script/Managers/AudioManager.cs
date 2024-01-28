@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip dropClip;
 
+    [SerializeField] private AudioClip noClip;
+
     private Coroutine _audioCoroutine;
 
 
@@ -70,6 +72,11 @@ public class AudioManager : MonoBehaviour
     public void PlayDrop()
     {
         PlayClip(sfxAudioSource, dropClip);
+    }
+
+    public void PlayNo()
+    {
+        PlayClip(sfxAudioSource, noClip);
     }
 
     public void Stop()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Coffee
   health: 1
-  deliveryTime: 15
+  deliveryTime: 45
   score: 1
   model: {fileID: 1598737658758947845, guid: 9618ee5198d5bc14690b61b995f89590, type: 3}
   damagedModel: {fileID: 0}

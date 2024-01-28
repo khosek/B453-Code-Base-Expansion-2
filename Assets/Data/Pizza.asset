@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: 
   name: Pizza
-  health: 4
-  deliveryTime: 40
-  score: 4
+  health: 5
+  deliveryTime: 45
+  score: 5
   model: {fileID: 3894880375354682955, guid: 0c0ea431ace4f624895e2c41a184d71c, type: 3}
   damagedModel: {fileID: 2677829250333234958, guid: 4996cb7e38e19d34f8d3c4c05aa9ad48, type: 3}

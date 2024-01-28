@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Donut
   health: 2
-  deliveryTime: 25
+  deliveryTime: 40
   score: 2
   model: {fileID: 8780654592860833253, guid: cd5c0226d9d4b554885c988834915042, type: 3}
   damagedModel: {fileID: 0}

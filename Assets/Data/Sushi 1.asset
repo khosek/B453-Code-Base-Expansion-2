@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sushi 1
   m_EditorClassIdentifier: 
   name: Sushi
-  health: 3
-  deliveryTime: 45
-  score: 3
+  health: 10
+  deliveryTime: 80
+  score: 10
   model: {fileID: 187400743937755542, guid: 9582f03c77bb7b24f8d4dcca62fa38e5, type: 3}
   damagedModel: {fileID: 0}

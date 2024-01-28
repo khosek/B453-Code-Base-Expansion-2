@@ -19,6 +19,8 @@ namespace Units
                 player.deliverItem();
 
                 HudManager.instance.HideHud();
+
+                AudioManager.instance.PlayNo();
             }
         }
     }

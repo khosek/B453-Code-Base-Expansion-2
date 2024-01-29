@@ -119,5 +119,12 @@ public class GameManager : MonoBehaviour
         HudManager.instance.SetScore(_score + " $");
 
     }
+    private void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
 
 }

@@ -56,11 +56,6 @@ namespace Units
             _speedInput = GetSpeedInput(_input.z);
 
             _turnInput = _input.x;
-
-            // if (_isGrounded)
-            // {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, _turnInput * _input.z * _turnSpeed * Time.deltaTime, 0f));
-            // }
         }
 
         private float GetSpeedInput(float speed)
@@ -71,25 +66,15 @@ namespace Units
             return speed * _speedMultiplier * (speed > 0 ? _forwardAcceleration : _reverseAcceleration);
         }
 
-        // private void Look()
-        // {
-        //     if (_input == Vector3.zero) return;
-
-        //     Quaternion newRotation = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
-
-        //     transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, _turnSpeed * Time.deltaTime);
-        // }
-
         private void Update()
         {
             GetInputs();
             SlopeRotation();
-            // Look();
         }
 
         private void FixedUpdate()
         {
-            Move();
+            MoveAndRotate();
         }
 
 
@@ -118,7 +103,7 @@ namespace Units
             }
         }
 
-        private void Move()
+        private void MoveAndRotate()
         {
             emissionRate = 0f;
 
@@ -128,7 +113,13 @@ namespace Units
 
                 if (Mathf.Abs(_speedInput) > 0)
                 {
-                    PlayerRigidbody.AddForce(transform.forward * _speedInput);
+                    Quaternion deltaRotation = Quaternion.Euler(new Vector3(0, _turnInput * _input.z * _turnSpeed, 0) * Time.fixedDeltaTime);
+
+                    PlayerRigidbody.MoveRotation(PlayerRigidbody.rotation * deltaRotation);
+
+                    Vector3 newVelocity = transform.forward * _speedInput;
+
+                    PlayerRigidbody.velocity = new Vector3(newVelocity.x * Time.fixedDeltaTime, PlayerRigidbody.velocity.y, newVelocity.z * Time.fixedDeltaTime);
 
                     emissionRate = maxEmission;
                 }
@@ -150,24 +141,6 @@ namespace Units
             Vector3 wheelAngles = FrontWheel.localRotation.eulerAngles;
 
             FrontWheel.localRotation = Quaternion.Euler(wheelAngles.x, wheelAngles.y, _turnInput * _maxWheelTurn);
-
-            // Vector3 cameraForward = cameraTransform.forward;
-
-            // cameraForward.y = 0;
-
-            // Vector3 cameraRight = cameraTransform.right;
-
-            // cameraRight.y = 0;
-
-            // Vector3 forwardRelative = _input.z * cameraForward * _maxSpeed * Time.deltaTime;
-
-            // Vector3 rightRelative = _input.x * cameraRight * _maxSpeed * Time.deltaTime;
-
-            // Vector3 moveDirection = forwardRelative + rightRelative;
-
-            // rigidbody.AddForce(new Vector3(moveDirection.x, rigidbody.velocity.y, moveDirection.z));
-
-
         }
     }
 }

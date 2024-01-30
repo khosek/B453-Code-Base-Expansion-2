@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
 
         _currentHealth = health;
 
-        SetText(_currentHealth + " / " + _maxHealth);
+        SetText(_currentHealth + " $");
 
     }
 
@@ -36,7 +36,7 @@ public class HealthBar : MonoBehaviour
 
         _maxHealth = maxHealth;
 
-        SetText(_maxHealth + " / " + _maxHealth);
+        SetText(_maxHealth + " $ ");
     }
 
     public void SetText(string newText)

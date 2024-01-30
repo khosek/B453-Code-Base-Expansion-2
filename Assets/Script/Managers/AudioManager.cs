@@ -95,7 +95,6 @@ public class AudioManager : MonoBehaviour
     {
         while (true)
         {
-            // audioSource.clip = clips[RcurrentClip];
             musicAudioSource.clip = clips[Random.Range(0, clips.Length)];
             musicAudioSource.Play();
 

@@ -256,11 +256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd0db84c0773184386593188402da5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forwardAcceleration: 8
-  _reverseAcceleration: 4
+  _forwardAcceleration: 12
+  _reverseAcceleration: 6
   _maxSpeed: 50
   _speedMultiplier: 30
-  gravityForce: 1
+  gravityForce: 15
   _turnSpeed: 180
   _speedInput: 0
   _turnInput: 0

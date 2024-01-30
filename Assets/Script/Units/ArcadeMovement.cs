@@ -53,6 +53,17 @@ namespace Units
         {
             _input = new Vector3(Input.GetAxis(_xAxis), 0, Input.GetAxis(_yAxis));
 
+
+            if (Input.GetButton("Fire1"))
+            {
+                _input = new Vector3(Input.GetAxis(_xAxis), 0, 1);
+            }
+
+            if (Input.GetButton("Fire2"))
+            {
+                _input = new Vector3(Input.GetAxis(_xAxis), 0, -1);
+            }
+
             _speedInput = GetSpeedInput(_input.z);
 
             _turnInput = _input.x;

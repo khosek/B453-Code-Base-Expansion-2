@@ -2678,7 +2678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87047236}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.043955475, y: 0.7054658, z: 0.043920178, w: 0.70601493}
+  m_LocalRotation: {x: -0.04395456, y: 0.70548093, z: 0.04392111, w: 0.7059998}
   m_LocalPosition: {x: -120.99999, y: -54.2872, z: 50.195744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5745,7 +5745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194673399}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.043955475, y: 0.7054658, z: 0.043920178, w: 0.70601493}
+  m_LocalRotation: {x: -0.04395456, y: 0.70548093, z: 0.04392111, w: 0.7059998}
   m_LocalPosition: {x: -120.99999, y: -54.2872, z: 50.195744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -62143,7 +62143,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: efbbe9ddf1ca17c4aa7dbdc4eacabf63, type: 3}
   - {fileID: 8300000, guid: 66413684d5877284cac26bcdeab02327, type: 3}
   - {fileID: 8300000, guid: 5e61b3b435b7c4447b21a30dace6ed99, type: 3}
-  - {fileID: 8300000, guid: 46036309347322342a90a40e526767a6, type: 3}
   gameOverClip: {fileID: 8300000, guid: 06bc7befbb816eb4d8d2a9b1a6446e30, type: 3}
   pickupClip: {fileID: 8300000, guid: 731c1da102c56fa4ba7332d557f2e777, type: 3}
   dropClip: {fileID: 8300000, guid: f6da656e2e09b164b89c96411fd5451e, type: 3}

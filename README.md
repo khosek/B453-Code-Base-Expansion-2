@@ -1,6 +1,6 @@
 # Concept Overview
 
-## Game Title: Crazy Delivery (TBD)
+## Game Title: Untitled Unity Delivery Game
 
 ## Game Platform: PC and Web
 
@@ -12,11 +12,11 @@ Honestly, mid 20s or 30s players who are nostalgic about frenetic arcade games.
 
 ## Game Summary
 
-The game is about a hasty delivery man trying to make ends meet. To reach that goal, the main character needs to deliver the most outrageous and odd items to his peculiar customers.
+The game is about a hasty delivery man trying to make ends meet. To reach that goal, the main character needs to deliver the items to the customers.
 
 ## Game Outline
 
-This is a short arcade game with fast-paced and hasty mechanics. The delivery man can pick up and deliver items to his lunatic customers in his motorcycle. The game progresses as each customer receive the packages, the player’s reward is basically in-game money and the funny outcome of each delivery. The game ends when the delivery successfully satisfies the demand of all the city customers.
+This is a short arcade game with fast-paced and hasty mechanics. The delivery man can pick up and deliver items to the customers in his motorcycle. The game progresses as each customer receive the packages, the player’s reward is basically in-game money and the funny outcome of each delivery. The game ends inevitably when the delivery runs out of time to satisfy the demand of all the city customers.
 
 ## Unique Selling Points 
 
@@ -29,4 +29,3 @@ The art compels an easy-going but funny atmosphere.
 - Crazy Taxi, Dreamcast 1999.
 
 *Author: Sean González*
-

@@ -49,6 +49,12 @@ namespace Units
 
         [SerializeField] private float emissionRate;
 
+        [SerializeField] private float boostMultiplier;
+
+        private float heatPercent = 0.0f;
+
+        private bool overheating = false;
+
         private void GetInputs()
         {
             _input = new Vector3(Input.GetAxis(_xAxis), 0, Input.GetAxis(_yAxis));
@@ -65,6 +71,11 @@ namespace Units
             }
 
             _speedInput = GetSpeedInput(_input.z);
+
+            if(Input.GetButton("Boost"))
+            {
+                _speedInput *= boostMultiplier;
+            }
 
             _turnInput = _input.x;
         }

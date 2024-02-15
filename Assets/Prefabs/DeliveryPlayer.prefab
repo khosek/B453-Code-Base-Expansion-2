@@ -279,6 +279,7 @@ MonoBehaviour:
   dustTrail: []
   maxEmission: 25
   emissionRate: 0
+  boostMultiplier: 2
 --- !u!114 &7995593517542597416
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,7 +72,11 @@ namespace Units
 
             _speedInput = GetSpeedInput(_input.z);
 
-            if(Input.GetButton("Boost"))
+            if (overheating)
+            {
+                _speedInput *= 0;
+            }
+            else if(Input.GetButton("Boost"))
             {
                 _speedInput *= boostMultiplier;
             }
@@ -90,6 +94,7 @@ namespace Units
 
         private void Update()
         {
+            CheckHeat();
             GetInputs();
             SlopeRotation();
         }
@@ -163,6 +168,29 @@ namespace Units
             Vector3 wheelAngles = FrontWheel.localRotation.eulerAngles;
 
             FrontWheel.localRotation = Quaternion.Euler(wheelAngles.x, wheelAngles.y, _turnInput * _maxWheelTurn);
+        }
+
+        public void CheckHeat()
+        {
+
+            if (!Input.GetButton("Boost") || overheating)
+            {
+                heatPercent -= 10.0f * Time.deltaTime;
+                if (heatPercent <= 0)
+                {
+                    overheating = false;
+                    heatPercent = 0.0f;
+                }
+            }
+            else
+            {
+                heatPercent += 20.0f * Time.deltaTime;
+                if (heatPercent >= 100) 
+                {
+                    overheating = true;
+                    heatPercent = 100.0f;
+                }
+            }
         }
     }
 }

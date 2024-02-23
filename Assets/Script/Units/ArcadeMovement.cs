@@ -1,5 +1,7 @@
 using UnityEngine;
 using Utils;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Units
 {
@@ -50,6 +52,8 @@ namespace Units
         [SerializeField] private float emissionRate;
 
         [SerializeField] private float boostMultiplier;
+
+        [SerializeField] private TextMeshProUGUI heatText;
 
         private float heatPercent = 0.0f;
 
@@ -191,6 +195,9 @@ namespace Units
                     heatPercent = 100.0f;
                 }
             }
+
+            heatText.text = (int) heatPercent + "%";
+            heatText.color = new Color(Mathf.Lerp(0.0f, 1.0f, heatPercent / 100), Mathf.Lerp(1.0f, 0.0f, heatPercent / 100), 0.0f);
         }
     }
 }
